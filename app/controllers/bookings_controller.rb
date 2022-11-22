@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking =Booking.find(params[:id])
-    offer = @booking.list
+    offer = @booking.offer
     @booking.destroy
     redirect_to offers_path(offer), status: :see_other
   end
@@ -41,4 +41,3 @@ class BookingsController < ApplicationController
   end
 
 end
-
