@@ -1,11 +1,11 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offers.all
+    @offers = Offer.all
   end
 
   def show
-    @offers = Offer.find(params[:id])
-    @bookings = @offers.bookings
+    @offer = Offer.find(params[:id])
+    @bookings = @offer.bookings
   end
 
   def edit
@@ -24,11 +24,17 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    @offer.user = current_user
     @offer.save
-    redirect_to(offer_path(@offer))
+    redirect_to offer_path(@offer)
   end
 
   def destroy
-    
+  end
+
+  private
+
+  def offer_params
+    params.require(:offer).permit(:start_date, :address, :end_date, :language, :description, :price_day)
   end
 end
