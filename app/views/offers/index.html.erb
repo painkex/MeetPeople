@@ -1,12 +1,26 @@
 <h1>Offers#index</h1>
-  <ul> <% @offers.each do |offer| %>
-    <h3><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h3>
-    <li> <%= offer.description %> </li>
-    <li> <%= offer.price_day %> </li>
-    <li> <%= offer.address %> </li>
-    <li> <%= offer.start_date %> to <%= offer.end_date %>  </li>
+
+<div class="container">
+  <div class="cards m-2">
+    <% @offers.each do |offer| %>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h2>
+            <li> <%= offer.description %> </li>
+            <li> <%= offer.price_day %> </li>
+            <li> <%= offer.address %> </li>
+            <li> <%= offer.start_date %> to <%= offer.end_date %>  </li>
+          </div>
+
+            <h2 class="card-trip-pricing"><%= offer.price_day%>$</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
+</div>
 
 <%= link_to "New offer", new_offer_path if policy(Offer).new? %>
 
