@@ -1,11 +1,10 @@
 <h1>Offers#index</h1>
   <ul> <% @offers.each do |offer| %>
-    <li> <%= offer.user.firstname %> </li>
+    <li> <%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %> </li>
     <li> <%= offer.description %> </li>
     <li> <%= offer.price_day %> </li>
     <li> <%= offer.address %> </li>
-    <li> <%= offer.start_date %> </li>
-    <li> <%= offer.end_date %> </li>
+    <li> <%= offer.start_date %> to <%= offer.end_date %>  </li>
     <% end %>
   </ul>
 
