@@ -1,2 +1,14 @@
-<h1>Offers#show</h1>
-<p>Find me in app/views/offers/show.html.erb</p>
+<h1> <%= @offer.user.firstname%> <%= @offer.user.lastname %>   </h1>
+
+<ul>
+  <li><%= @offer.address %></li>
+  <li><%= @offer.language %></li>
+</ul>
+
+<% if policy(@offer).edit? %>
+  <%= link_to "Edit this offer", edit_offer_path(@offer) %> |
+<% end %>
+
+<%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
+
+<p><%= link_to 'Go back to list', offers_path %></p>
