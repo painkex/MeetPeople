@@ -12,8 +12,8 @@
           <%# <li class="nav-item active">
             <%= link_to "", "#", class: "nav-link" %>
           <%# </li> %>
-          <li class="nav-item">
-            <%= link_to "Become a teacher", "#", class: "nav-link" %>
+          <li class="nav-item btn btn-outline-secondary btn-sm mx-4 p-0">
+            <%= link_to "New offer", (new_offer_path if policy(Offer).new?), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
