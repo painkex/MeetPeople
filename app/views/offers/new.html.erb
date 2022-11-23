@@ -6,7 +6,6 @@
             input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
             wrapper_html: {data: {controller: "address-autocomplete",
             address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-       <div id="address" class="form-text">We'll never share your Address with anyone else.</div>
       <br></div>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
@@ -24,4 +23,3 @@
     <div class="form-rounded"><%= f.input :price_day, label: "price/day" %></div>
     <div class="buttun_submit"><%= f.submit %></div>
   <% end %>
-
