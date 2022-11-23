@@ -4,14 +4,24 @@
   <div class="cards m-2">
     <% @offers.each do |offer| %>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% if offer.language == "JavaScript" %>
+        <img class="card-trip-img" src="https://i0.wp.com/blog.canadianwebhosting.com/wp-content/uploads/2018/04/javascript-logo.png?fit=587%2C330&ssl=1" />
+      <% elsif offer.language == "Rails" %>
+        <img class="card-trip-img" src="https://rubyonrails.org/assets/images/opengraph.png">
+      <% elsif offer.language =="Ruby" %>
+        <img class="card-trip-img ruby" src="https://images.itnewsinfo.com/lmi/articles/grande/000000067300.jpg">
+      <% else %>
+        <img class="card-trip-img" src="https://www.journalduweb.org/wp-content/uploads/2019/02/apprendre-html-et-css.jpg" />
+      <% end %>
         <div class="card-trip-infos">
           <div>
-            <h2>><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h2>
+          <ol>
+            <h2 class="offer-name"><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h2>
             <li> <%= offer.description %> </li>
             <li> <%= offer.price_day %> </li>
             <li> <%= offer.address %> </li>
             <li> <%= offer.start_date %> to <%= offer.end_date %>  </li>
+          </ol>
           </div>
 
             <h2 class="card-trip-pricing"><%= offer.price_day%>$</h2>
