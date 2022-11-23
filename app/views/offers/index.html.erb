@@ -1,15 +1,13 @@
-<h1>Offers#index</h1>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/premium-vector/handshake-concept-cartoon-business-partnership-agreement-successful-meeting-cooperation-vector-shaking-hands-illustration-cooperation-relationship-businesspeople_176516-1358.jpg?w=2000);">
+<div class="banner mt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/premium-vector/handshake-concept-cartoon-business-partnership-agreement-successful-meeting-cooperation-vector-shaking-hands-illustration-cooperation-relationship-businesspeople_176516-1358.jpg?w=2000);">
   <div class="container">
     <h1> <strong>MeetPeople</strong> everybody needs a buddy!</h1>
     <p>Teach more, learn more, change the globe</p>
-    <button class="btn btn-info btn-sm"><strong><%= link_to "New offer", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
+    <button class="btn btn-info btn-lg"><strong><%= link_to "I want to be a buddy", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
   </div>
 </div>
 
 <div class="container">
-  <h3 class="m-1 mt-3">Available buddies :</h3>
+  <h3 class="m-2">Available buddies :</h3>
   <div class="cards m-2">
     <% @offers.each do |offer| %>
       <div class="card-trip">
