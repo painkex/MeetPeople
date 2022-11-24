@@ -32,6 +32,7 @@
 
             <h2 class="card-trip-pricing"><%= offer.price_day%>$</h2>
             <% if offer.user.photo.attached? %>
+            <%= offer.user %>
               <%= cl_image_tag offer.user.photo.key, crop: :fill, gravity: :face, class: "card-trip-user avatar" %>
             <% else %>
               <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", class: "card-trip-user avatar" %>
