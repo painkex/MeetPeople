@@ -1,41 +1,78 @@
 <div class="container mt-5 pt-2 show_show">
   <h1> <%= @offer.user.firstname%> <%= @offer.user.lastname %>   </h1>
-
-  <div class="d-flex">
-    <p><%= link_to offers_path do %>
-      <i class="fa-solid fa-arrow-left"></i>
-    <% end %>
-    <% if @offer.user.photo.attached? %>
-      <%= cl_image_tag @offer.user.photo.key, crop: :fill, gravity: :face, class:"show-avatar" %>
-    <% else %>
-      <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", width:"100pxs" %>
-    <% end %>
-    
-    <% if policy(@offer).edit? %>
-      <p><%= link_to edit_offer_path(@offer) do%>
-      <i class="fa-solid fa-pen-to-square"></i></p>
+  <div class="start-page">
+    <div class="card-page d-flex">
+      <% if @offer.user.photo.attached? %>
+        <%= cl_image_tag @offer.user.photo.key, crop: :fill, gravity: :face, class:"show-avatar" %>
+      <% else %>
+        <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", width:"100pxs" %>
       <% end %>
-    <% end %>
 
-
-    <% if policy(@offer).destroy? %>
-      <p><%= link_to offer_path(@offer), data: {turbo_method: :delete} do%>
-      <i class="fa-solid fa-trash"></i></p>
+      <% if policy(@offer).edit? %>
+        <p><%= link_to edit_offer_path(@offer) do%>
+        <i class="fa-solid fa-pen-to-square"></i></p>
+        <% end %>
       <% end %>
-    <% end %>
 
+
+      <% if policy(@offer).destroy? %>
+        <p><%= link_to offer_path(@offer), data: {turbo_method: :delete} do%>
+        <i class="fa-solid fa-trash"></i></p>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    <ul>
+      <li>Habite à <%= @offer.address %></li>
+      <li>Enseigne le <%= @offer.language %></li>
+      <li>Disponible du <%= @offer.start_date %> au <%= @offer.end_date %></li>
+    </ul>
+    <div class="card-calendar d-flex col-3">
+  <%= simple_form_for [@offer, @booking],
+                      html: {
+                        data: {
+                          controller: 'flatpickr'
+                        }
+                      } do |f| %>
+
+                <div class="start-date d-flex ml-6 mb-3">
+                  <div class="start-date-input">
+                      <%= f.input :start_date,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'startDateInput',
+                  }
+                } %>
+                  </div>
+                  <div class="end-date-input">
+   <%= f.input :end_date,
+                as: :string,
+                input_html: {
+                  # class: 'd-none',
+                  data: {
+                    flatpickr_target: 'endDateInput'
+                  }
+                } %>
+                  </div>
+                </div>
+
+                <%= f.submit 'Book now!', class: 'angled-gradient-button' %>
+  <% end %>
   </div>
+</div>
+  <% if policy(@offer).edit? %>
+   <p><%= link_to "Edit this offer", edit_offer_path(@offer) %></p>
+  <% end %>
 
-  <ul>
-    <li>Habite à <%= @offer.address %></li>
-    <li>Enseigne le <%= @offer.language %></li>
-    <li>Disponible du <%= @offer.start_date %> au <%= @offer.end_date %></li>
-  </ul>
+  <p><%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %></p>
+
+  <p><%= link_to 'Go back to list', offers_path %></p>
   <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    <%= render 'offers/info_window', offer: @offer %>
-  </div>
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%= render 'offers/info_window', offer: @offer %>
 
 </div>
