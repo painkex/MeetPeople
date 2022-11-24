@@ -1,15 +1,13 @@
-<h1>Offers#index</h1>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/premium-vector/handshake-concept-cartoon-business-partnership-agreement-successful-meeting-cooperation-vector-shaking-hands-illustration-cooperation-relationship-businesspeople_176516-1358.jpg?w=2000);">
+<div class="banner mt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/premium-vector/handshake-concept-cartoon-business-partnership-agreement-successful-meeting-cooperation-vector-shaking-hands-illustration-cooperation-relationship-businesspeople_176516-1358.jpg?w=2000);">
   <div class="container">
     <h1> <strong>MeetPeople</strong> everybody needs a buddy!</h1>
     <p>Teach more, learn more, change the globe</p>
-    <button class="btn btn-info btn-sm"><strong><%= link_to "New offer", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
+    <button class="btn btn-info btn-lg"><strong><%= link_to "I want to be a buddy", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
   </div>
 </div>
 
 <div class="container">
-  <h3 class="m-1 mt-3">Available buddies :</h3>
+  <h3 class="m-2">Available buddies :</h3>
   <div class="cards m-2">
     <% @offers.each do |offer| %>
       <div class="card-trip">
@@ -27,14 +25,18 @@
           <ol>
             <h2 class="offer-name"><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h2>
             <li> <%= offer.description %> </li>
-            <li> <%= offer.price_day %> </li>
             <li> <%= offer.address %> </li>
             <li> <%= offer.start_date %> to <%= offer.end_date %>  </li>
           </ol>
           </div>
 
             <h2 class="card-trip-pricing"><%= offer.price_day%>$</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <% if offer.user.photo.attached? %>
+            <%= offer.user %>
+              <%= cl_image_tag offer.user.photo.key, crop: :fill, gravity: :face, class: "card-trip-user avatar" %>
+            <% else %>
+              <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", class: "card-trip-user avatar" %>
+            <% end %>
         </div>
       </div>
     <% end %>
