@@ -2,7 +2,7 @@
   <div class="container">
     <h1> <strong>MeetPeople</strong> everybody needs a buddy!</h1>
     <p>Teach more, learn more, change the globe</p>
-    <button class="btn btn-info btn-lg"><strong><%= link_to "I want to be a buddy", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
+    <button class="push-button-3d"><strong><%= link_to "I want to be a buddy", (new_offer_path if policy(Offer).new?), class: "nav-link" %></strong></button>
   </div>
 </div>
 
@@ -29,7 +29,14 @@
               <li><img src="https://cdn-icons-png.flaticon.com/512/55/55281.png" class="card-trip-icons"> <%= offer.start_date %> to <%= offer.end_date %>  </li>
             </ol>
           </div>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+=======
+
+            <% if offer.user.photo.attached? %>
+            <%= offer.user %>
+              <%= cl_image_tag offer.user.photo.key, crop: :fill, gravity: :face, class: "card-trip-user avatar" %>
+            <% else %>
+              <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", class: "card-trip-user avatar" %>
+            <% end %>
         </div>
         <div class="card-trip-pricing"><h2><%= offer.price_day%>$</h2></div>
       </div>

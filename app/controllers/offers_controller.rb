@@ -1,12 +1,11 @@
 class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer)
-    # The `geocoded` scope filters only offers with coordinates
   end
 
   def show
     @offer = Offer.find(params[:id])
-    # @bookings = @offer.bookings
+    @booking = Booking.new
     authorize @offer
     @markers = [
       {
@@ -15,7 +14,6 @@ class OffersController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { offer: @offer })
       }
     ]
-
   end
 
   def edit
