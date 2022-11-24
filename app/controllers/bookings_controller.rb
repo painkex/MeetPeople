@@ -9,12 +9,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @offer = Offer.find(params[:offer_id])
-    @booking.offer = @offer
+    # @booking.offer = @offer
     if @booking.save
-      redirect_to offer_path(@offer)
+      redirect_to offer_booking_path(@offerÒ)
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @offer
   end
 
 
