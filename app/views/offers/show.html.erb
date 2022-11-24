@@ -1,6 +1,10 @@
 <div class="container mt-5 pt-2 show_show">
   <h1> <%= @offer.user.firstname%> <%= @offer.user.lastname %>   </h1>
-  <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="Saunier" width=100>
+  <% if @offer.user.photo.attached? %>
+    <%= cl_image_tag @offer.user.photo.key, crop: :fill, gravity: :face, width:"100px" %>
+  <% else %>
+    <%= image_tag "http://4.bp.blogspot.com/_R0Rc6mb8H6E/S1TTZJCtq8I/AAAAAAAAC9A/a50aYOK5o0o/w1200-h630-p-k-no-nu/design-fetish-no-photo-facebook-1.jpg", width:"100pxs" %>
+  <% end %>
   <ul>
     <li>Habite à <%= @offer.address %></li>
     <li>Enseigne le <%= @offer.language %></li>
