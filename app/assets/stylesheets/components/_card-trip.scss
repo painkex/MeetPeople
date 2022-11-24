@@ -2,22 +2,50 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 2%;
+}
+
+.card-trip-pricing {
+  text-align: center;
+  padding: 0px;
+  display:flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .card-trip > img {
-  height: 100px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
   opacity: 0.8;
   background-size: cover;
 }
 
+.description {
+  display:inline-block;
+  margin-right: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 230px;
+  overflow: hidden;
+}
+
 .card-trip .ruby {
   object-fit: contain;
 }
 
-.card-trip li:before {
-  content: "\003E";
+.card-trip-icons {
+  height: 20px;
+  width: 20px;
+}
+
+.card-trip ol, ul {
+  padding-left: 1rem;
+}
+
+.card-trip li {
+  list-style-type: none;
 }
 
 .offer-name {
@@ -26,6 +54,12 @@
 
 .card-trip h2 {
   font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip h2  .offer-name{
+  font-size: 22px;
   font-weight: bold;
   margin: 0;
 }
@@ -43,11 +77,12 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  border-top: 3px solid #809499;
 }
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  right: 11px;
+  top: -29px;
+  width: 60px;
 }
