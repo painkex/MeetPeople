@@ -68,6 +68,10 @@
   font-weight: 900;
   cursor: pointer;
   letter-spacing: 1px;
+  padding: 0px;
+  a {
+    padding: 16px;
+  }
 }
 .push-button-3d:active {
   box-shadow: 0 1px #C1A23C;
