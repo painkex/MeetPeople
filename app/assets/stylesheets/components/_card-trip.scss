@@ -8,6 +8,20 @@
   height: 100px;
   width: 100%;
   object-fit: cover;
+  opacity: 0.8;
+  background-size: cover;
+}
+
+.card-trip .ruby {
+  object-fit: contain;
+}
+
+.card-trip li:before {
+  content: "\003E";
+}
+
+.offer-name {
+  text-decoration: none;
 }
 
 .card-trip h2 {
