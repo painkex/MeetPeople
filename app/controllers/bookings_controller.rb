@@ -23,13 +23,14 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:offer_id])
   end
 
   def edit
   end
 
   def destroy
-    @booking =Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     offer = @booking.offer
     @booking.destroy
     redirect_to offers_path(offer), status: :see_other
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:comment,  :movie_id)
+    params.require(:booking).permit(:start_date, :end_date, :comment, :status)
   end
 
 end
