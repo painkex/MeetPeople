@@ -2,3 +2,26 @@
 border-radius: 15px;
 
 }
+.card-calendar {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+
+  .angled-gradient-button {
+    width: 100%;
+  }
+  .start-date-input input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  .end-date-input input {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
+}
