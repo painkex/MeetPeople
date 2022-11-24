@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
+    authorize @booking
     @booking.user_id = current_user.id
     @offer = Offer.find(params[:offer_id])
   end
@@ -8,10 +9,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @offer = Offer.find(params[:offer_id])
-    # @booking.offer = @offer
+    @booking.user = current_user
+    @booking.offer = @offer
     if @booking.save
-      redirect_to offer_booking_path(@offerÒ)
+      redirect_to "/offers/#{@offer.id}/bookings/#{@booking.id}"
+      # redirect_to offers_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +29,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:offer_id])
+    authorize @booking
   end
 
   def edit
@@ -39,7 +44,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :comment, :status)
+    params.require(:booking).permit(:start_date, :end_date, :comment, :status, :id)
   end
 
 end
