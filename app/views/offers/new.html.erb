@@ -1,25 +1,20 @@
 <h1>Put yourself available</h1>
 <div class="container mt-4" >
   <%= simple_form_for(@offer) do |f| %>
-     <div class="mb-3">
-      <div class="form-rounded"><%= f.input :address %></div>
-       <div id="address" class="form-text">We'll never share your Address with anyone else.</div>
-      <br></div>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-     <div class="mb-3">
-        <div class="form-switch">
-          <div type="checkbox" role="switch" id="flexSwitchCheckChecked" checked class="text-center">
-             <%= f.input :language, collection: ["Rails", "Ruby", "JavaScript", "HTML/CSS"],  as: :radio_buttons %>
-          </div>
-        <div>
-      </div>
-    </div>
-      <div class="form-rounded"><%= f.input :description %></div>
-      <div id="description" class="form-text">Give us a little description about your abilities.</div>
-     <br>
 
-    <div class="form-rounded"><%= f.input :price_day, label: "price/day" %></div>
-    <div class="buttun_submit"><%= f.submit %></div>
+  <%= f.input :address, class:"box" %>
+    <p id="address" class="form-text">We'll never share your Address with anyone else.</p>
 
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <div class="row mb-3">
+    <%= f.input :language, collection: ["Rails", "Ruby", "JavaScript", "HTML/CSS"],   as: :radio_buttons%>
+  </div>
+  <%= f.input :description, class:"box" %>
+    <p id="description" class="form-text">Give us a little description about your abilities.</p>
+  <div>
+    <%= f.input :price_day, class:"box", label: "price/day" %>
+  </div>
+  <%= f.submit class: "buttun_submit" %>
   <% end %>
+</div>

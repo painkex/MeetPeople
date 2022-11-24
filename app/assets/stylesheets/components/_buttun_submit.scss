@@ -1,9 +1,13 @@
 .buttun_submit {
-text-align: center;
 box-shadow: 5px;
-color: blue;
-
+height: 30px;
+width: 200px;
+border-radius: 20px;
+background-color: rgb(33, 30, 75);
+color: white;
+margin-left: 40%;
 }
-.buttun_submit:hover{
-  color: yellow;
+
+.box{
+  border-radius: 15px;
 }
