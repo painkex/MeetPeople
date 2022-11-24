@@ -23,14 +23,12 @@
         <div class="card-trip-infos">
           <div>
             <ol>
-              <h2 class="offer-name"><%=offer.user.firstname %> <%=  offer.user.lastname%></h2>
+            <h2 class="offer-name"><%= link_to "#{offer.user.firstname} #{offer.user.lastname}", offer_path(offer) %></h2>
               <li class="description"><img src="https://cdn-icons-png.flaticon.com/512/59/59118.png" class="card-trip-icons"> <%= offer.description %> </li>
               <li><img src="https://cdn-icons-png.flaticon.com/512/2901/2901609.png" class="card-trip-icons"> <%= offer.address %> </li>
               <li><img src="https://cdn-icons-png.flaticon.com/512/55/55281.png" class="card-trip-icons"> <%= offer.start_date %> to <%= offer.end_date %>  </li>
             </ol>
           </div>
-=======
-
             <% if offer.user.photo.attached? %>
               <%= cl_image_tag offer.user.photo.key, crop: :fill, gravity: :face, class: "card-trip-user avatar" %>
             <% else %>
