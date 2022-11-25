@@ -1,11 +1,10 @@
 
-<div class="container mt-5" >
+<div class="container mt-5 text-center" >
 
-    <i class="fa-solid fa-circle-check mt-5 text-center"></i>
-  <div class="d-flex mt-5 col-4 offset-4 text-center flex-wrap-center">
-    <h1>Merci <strong><%= @booking.user.firstname%></strong>  d'avoir choisi  <strong><%= @booking.offer.user.firstname  %></strong>  pour vous aider a réaliser votre projet.
-    Nous esperons vous revoir très bientot sur Meetpeople</h1>
-  </div>
-  <%= link_to "Revenir en arrière", offers_path %>
-  <%= link_to "Voir ton Dashboard ", dashboard_path %>
+  <i class="fa-solid fa-circle-check my-5"></i>
+  <h1>Thank you <strong><%= @booking.user.firstname%></strong>  for ussing MeetPeople</h1>
+  <h1>You booked <strong><%= @booking.offer.user.firstname%></strong></h1>
+  <h1> From <%= @booking.offer.start_date %> until <%= @booking.offer.end_date %></h1>
+  <button type="button" class="btn btn-secondary m-3"><%= link_to "Go back to available buddies", offers_path%></button>
+  <button type="button" class="btn btn-secondary m-3"><%= link_to "See your dashboard", dashboard_path %></button>
 </div>
