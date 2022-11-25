@@ -1,5 +1,53 @@
 .form-check {
 display: flex;
-padding-left: 45%;
 margin: 10px;
+padding-top: 20px;
+padding: 20px;
+}
+
+fieldset{
+  display: inline-flex;
+  padding-inline: 1px;
+}
+
+.form-check-input{
+     background-color: white;
+}
+.form-check-input[type="radio"]{
+  display: flex;
+}
+legend{
+  float: none;
+}
+.form-control{
+  background-color: white;
+  border-radius: 5px;
+}
+.form-select{
+  background-color: white;
+}
+
+
+.card-calendar {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+
+  .angled-gradient-button {
+    width: 100%;
+  }
+  .start_date-input input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  .end_date-input input {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
 }
