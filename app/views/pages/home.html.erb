@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class=" mt-5 ms-5">
+<h1>My Dashboard</h1>
+<h3>My bookings</h3>
+<% current_user.bookings.each do |b| %>
+    <p>Great ! Your future buddy will be <strong><%= b.offer.user.firstname.capitalize %> <%= b.offer.user.lastname.capitalize %></strong>, Your journey will begin <%= b.offer.start_date %> and will end at <%= b.offer.end_date %>, Hope you'll enjoy </p>
+  <% end %>
+
+<h3>My Offers</h3>
+<% @users.each do |b| %>
+    <%=b.firstname%>
+<% end %>
+<%= link_to "Go back to the list", offers_path %>
+</div>

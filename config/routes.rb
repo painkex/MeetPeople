@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :update, :edit, :show]
   end
   resources :bookings, only: [:destroy]
-  end
+  get "/dashboard", to: "pages#home"
+end
