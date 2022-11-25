@@ -2,7 +2,7 @@
 <h1>My Dashboard</h1>
 <h3>My bookings</h3>
 <% current_user.bookings.each do |b| %>
-    <p>Great ! Your future buddy will be <strong><%= b.offer.user.firstname.capitalize %> <%= b.offer.user.lastname.capitalize %></strong>, Your journey will begin <%= b.offer.start_date %> and will end at <%= b.offer.end_date %>, Hope you'll enjoy </p>
+    <p>Great ! Your future buddy will be <strong><%= b.offer.user.firstname%> <%= b.offer.user.lastname%></strong>, Your journey will begin <%= b.offer.start_date %> and will end at <%= b.offer.end_date %>, Hope you'll enjoy </p>
   <% end %>
 
 <h3>My Offers</h3>
