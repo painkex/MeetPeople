@@ -1,7 +1,7 @@
 
 <div class="container mt-5 pt-5" >
   <%= simple_form_for(@offer) do |f| %>
-     <div class="mb-3">
+     <div class="mb-3 mt-1">
        <%= f.input :address,
             input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
             wrapper_html: {data: {controller: "address-autocomplete",
