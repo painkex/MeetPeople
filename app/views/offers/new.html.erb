@@ -1,5 +1,5 @@
-<h1>Put yourself available</h1>
-<div class="container mt-4" >
+
+<div class="container mt-5 pt-5" >
   <%= simple_form_for(@offer) do |f| %>
      <div class="mb-3">
        <%= f.input :address,
@@ -21,5 +21,5 @@
       <div id="description" class="form-text">Give us a little description about your abilities.</div>
      <br>
     <div class="form-rounded"><%= f.input :price_day, label: "price/day" %></div>
-    <div class="buttun_submit"><%= f.submit %></div>
+    <div class="buttun_submit pt-4"><%= f.submit %></div>
   <% end %>
