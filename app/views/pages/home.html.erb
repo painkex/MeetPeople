@@ -1,11 +1,43 @@
-<div class=" mt-5 ms-5">
-<h1>My Dashboard</h1>
-<h3>My bookings</h3>
-<% current_user.bookings.each do |b| %>
-    <p>Great ! Your future buddy will be <strong><%= b.offer.user.firstname%> <%= b.offer.user.lastname%></strong>, Your journey will begin <%= b.offer.start_date %> and will end at <%= b.offer.end_date %>, Hope you'll enjoy </p>
-  <% end %>
+<div class="container">
+<h1 class="mt-5">Dashboard</h1>
+<h3 class="mt-5">My Bookings</h3>
 
-<h3>My Offers</h3>
+<div class="list-group">
+  <% current_user.bookings.each_with_index do |b,i| %>
+    <% if i == 0 %>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active ">
+      <div class="d-flex">
+      <% if b.offer.language == "JavaScript" %>
+          <img class="show-language" src="https://i0.wp.com/blog.canadianwebhosting.com/wp-content/uploads/2018/04/javascript-logo.png?fit=587%2C330&ssl=1" />
+        <% elsif b.offer.language == "Rails" %>
+          <img class="show-language" src="https://rubyonrails.org/assets/images/opengraph.png">
+        <% elsif b.offer.language =="Ruby" %>
+          <img class="show-language ruby" src="data:image/png;base64,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">
+        <% else %>
+          <img class="show-language" src="https://www.journalduweb.org/wp-content/uploads/2019/02/apprendre-html-et-css.jpg" />
+        <% end %>
+      </div>
+
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><strong><%= b.offer.user.firstname%> <%= b.offer.user.lastname%></strong></h5>
+        <small><%= b.offer.start_date %></small>
+      </div>
+      <p class="mb-1">Lieu de rendez-vous : <%= b.offer.address %>.</p>
+      <small>Détails : <%= b.offer.description %></small>
+    </a>
+    <% else %>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><strong><%= b.offer.user.firstname%> <%= b.offer.user.lastname%></strong></h5>
+        <small><%= b.offer.start_date %></small>
+      </div>
+      <p class="mb-1">Lieu de rendez-vous : <%= b.offer.address %>.</p>
+      <small>Détails : <%= b.offer.description %></small>
+    </a>
+    <% end %>
+  <% end %>
+</div>
+<h3 class="mt-3">My Offers</h3>
 <% @users.each do |b| %>
     <%=b.firstname%>
 <% end %>
