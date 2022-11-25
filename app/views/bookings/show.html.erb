@@ -2,7 +2,7 @@
 <div class="container mt-5 text-center" >
 
   <i class="fa-solid fa-circle-check my-5"></i>
-  <h1>Thank you <strong><%= @booking.user.firstname%></strong>  for ussing MeetPeople</h1>
+  <h1>Thank you <strong><%= current_user.firstname%></strong>  for ussing MeetPeople</h1>
   <h1>You booked <strong><%= @booking.offer.user.firstname%></strong></h1>
   <h1> From <%= @booking.offer.start_date %> until <%= @booking.offer.end_date %></h1>
   <button type="button" class="btn btn-secondary m-3"><%= link_to "Go back to available buddies", offers_path%></button>
