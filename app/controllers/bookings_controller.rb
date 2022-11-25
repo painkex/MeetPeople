@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     if @booking.save
       redirect_to "/offers/#{@offer.id}/bookings/#{@booking.id}"
+
       # redirect_to offers_path
     else
       render :new, status: :unprocessable_entity
