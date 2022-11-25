@@ -1,7 +1,7 @@
 <div class="container mt-5 pt-2 show_show">
-  <span class="return-button"><a href="<%= offers_path %>" class="previous round">&#8249;</a></span>
+  <span class="return-button mt-2"><a href="<%= offers_path %>" class="previous round">&#8249;</a></span>
 
-  <div class="start-page mb-3">
+  <div class="start-page mb-3 mt-3">
     <div class="card-page d-flex">
       <% if @offer.user.photo.attached? %>
         <%= cl_image_tag @offer.user.photo.key, crop: :fill, gravity: :face, class:"show-avatar" %>
