@@ -77,3 +77,11 @@
   box-shadow: 0 1px #C1A23C;
   transform: translateY(3px);
 }
+
+.start-page-user {
+  display: flex;
+  justify-content: space-evenly;
+  ul {
+    margin-right: auto;
+  }
+}
